@@ -30,5 +30,6 @@ class FreesoundItem(scrapy.Item):
     mp3 = scrapy.Field()
     ogg = scrapy.Field()
     wav = scrapy.Field()
+    url = scrapy.Field()
 
 

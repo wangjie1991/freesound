@@ -5,6 +5,8 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
+import os
+
 
 class FreesoundPipeline(object):
     def process_item(self, item, spider):
@@ -31,8 +33,6 @@ class FreesoundPipeline(object):
         text += line
         line = 'tags=%s\n' % item['tags']
         text += line
-        line = '\n'
-        text += line
         line = 'count=%s\n' % item['count']
         text += line
         line = 'author=%s\n' % item['author']
@@ -49,7 +49,9 @@ class FreesoundPipeline(object):
         text += line
         line = 'ogg=%s\n' % item['ogg']
         text += line
-        line = 'wav=%s' % item['wav']
+        line = 'wav=%s\n' % item['wav']
+        text += line
+        line = 'url=%s\n' % item['url']
         text += line
 
         fdir = '/Users/wangjie/Downloads/freesound'
