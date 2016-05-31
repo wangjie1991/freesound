@@ -15,6 +15,11 @@ class FreesoundPipeline(object):
         if item['index'] == '':
             return item
 
+        odir = '/Users/wangjie/Applications/git/freesound/data'
+        oname = '%s/%s.txt' % (odir, item['index'])
+        if os.path.exists(oname):
+            return item
+
         line = 'index=%s\n' % item['index']
         text += line
         line = 'title=%s\n' % item['title']
@@ -57,10 +62,9 @@ class FreesoundPipeline(object):
         fdir = '/Users/wangjie/Downloads/freesound'
         if not os.path.exists(fdir):
             os.makedirs(fdir)
-
         name = '%s/%s.txt' % (fdir, item['index'])
         with open(name, 'w') as fout:
             fout.write(text.encode('utf-8'))
-        return item
 
+        return item
 

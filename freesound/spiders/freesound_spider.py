@@ -12,7 +12,7 @@ class LinkFilter():
         if os.path.exists('bloomfilter'):
             self.bloomfilter = BloomFilter.open('bloomfilter')
         else:
-            self.bloomfilter = BloomFilter(100000, 0.01, 'bloomfilter')
+            self.bloomfilter = BloomFilter(1000000, 0.01, 'bloomfilter')
 
     def process(self, links):
         new_links = []
